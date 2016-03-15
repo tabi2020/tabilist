@@ -1,0 +1,49 @@
+.plan h1{font-size:16px;} 
+.plan .planHeader{text-align: center; }
+.plan .planimage {max-width: 722px;}
+
+.main.plan .leftColumn{width:720px;}
+
+.main.plan .rightColumn{right:110px; width: 280px; top:100px;}
+.main.plan .rightColumn.positionNormal{position: unset;}
+
+.plan .rightColumn li#spotTitle{background-color:#ff763d; color:#fff;font-size: 11px; padding: 7px 0 7px 15px;}
+.plan .rightColumn li{font-size: 13px; padding: 10px 0 10px 15px; border-bottom: 1px solid #aaa;}
+.main.plan .rightColumn ul{padding:0; border: 1px solid #aaa; margin:0px;}
+.main.plan .rightColumn #map{width:280px; height:280px}
+.main.plan .rightColumn #map.BigImage{width:500px; height:500px; position:absolute;}
+
+.main.plan .rightColumn #mapDetail{background-color:#fff; text-align:center;  }
+/* sp */
+.sp .plan h1{font-size:18px; text-align: center; margin: 45px 10px 45px 10px;} 
+.sp .plan #planDetail{margin: 0 10px; border-top:1px solid #d4d4d4; text-align:initial; padding: 10px 10px 20px 10px; border-bottom:1px solid #d4d4d4; }
+.sp .plan .budget{text-align: left; font-size: 12px; color:#d4d4d4;  border-bottom:1px solid #d4d4d4; padding: 0 10px 10px; margin: 0;}
+
+.sp .plan .spplanimage {width:100%;}
+.sp .planMain{margin:0 10px; }
+.sp .plan .planSpot{border-bottom: 1px solid #aaa; margin:30px 10px 25px 0;}
+.sp .plan .planSpot .spotName{font-weight: bold; font-size:16px; display: inline; position:absolute; margin:0px 3px; }
+.sp .plan .planSpot .planDetailTitle{ margin:5px 0; }
+.sp .plan .planSpot .planDetailTitle img{}
+.sp .plan .planSpot .note{margin:10px 20px; font-size: 14px;}
+
+.sp .spots{background-color:#333333; color:#fff; }
+.sp .spots ul{margin-top: 0; font-size: 14px; padding:10px 10px 10px 10px;}
+.sp .spots li{margin:18px 0;}
+.sp .spots .spotDetail{font-size: 12px;}
+.sp .spots .spotType{font-size: 12px;color:#d9d9d9;}
+.sp .plan #gogMap{margin:0 10px;}
+.sp .plan #gogMap #mapTitle{padding: 10px; background-color: #4688cf; color: #ffffff;}
+.sp .plan #map{width:100%; height:450px}
+
+.sp .plan .icoNumber{float: left; padding:5px 0 0 0;}
+.sp .plan .spotList{margin:0 0 0 28px; }
+
+.sp .plan .arrIco{width: 16px; margin:4px 5px 0 0;}
+.sp .plan .btnSentence{float: right; margin: 0;}
+.sp .plan .spotInfo{ background-color:#fff; margin:20px 0 20px 0; border:1px solid #dddddd; border-radius: 5px; padding: 0 15px; }
+.sp .plan .spotInfo .content .title{ color: #333333; font-weight:bold; margin:6px 0 2px 0; font-size: 14px; }
+.sp .plan .spotInfo .content .main{ color: #333333; margin:4px 0 2px 0; border-bottom:1px solid #dddddd; padding: 0 0 2px 0; }
+.sp .plan .spotInfo .content p.main{ color: #333333; margin:4px 0 2px 0; border-bottom:1px solid #dddddd; padding: 0 0 2px 0; }
+.sp .plan .spotInfo .content:last-of-type p.main{border-bottom: none;}
+

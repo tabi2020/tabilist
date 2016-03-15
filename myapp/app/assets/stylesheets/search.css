@@ -1,0 +1,26 @@
+.search h1{ border-bottom: 1px solid #aaa; font-size: 18px; margin: 25px 0; padding: 0 0 30px; }
+.search .leftColumn .searchPlans{height: 220px;}
+.search .leftColumn .image{float:left;}
+.search .leftColumn .sentence{float:right; width:484px; height:162px; border:1px solid #aaa; padding:18px;}
+.search .leftColumn p{ border-bottom: 1px solid #aaa;}
+.search .leftColumn p.budget{ border-bottom: none;}
+.search .leftColumn .searchPlans .image p{border:none;}
+
+.main.search .leftColumn .image { width:240px; height:200px; position: relative; }
+.main.search .leftColumn .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height: 200px; background-size: cover; }
+
+/* sp */
+.sp .search h1{ color:#202020; border-bottom: 1px solid #d4d4d4; font-size: 20px; margin: 25px 0 5px 0; padding: 0 0 25px; text-align: center; }
+.sp .search h2{ color:#555555;}
+.sp .search #plans{padding:0 30px 0 0;}
+.sp .search .gpSearch{padding: 0 15px 10px 15px; border-bottom: 1px solid #d4d4d4;}
+
+.sp .search .prefSearch a{color: #74a2d7; font-weight: bold; margin: 0 10px 0 0; font-size:16px; }
+.sp .search .planTitle{color:#202020; height: 100px;}
+.sp .search .searchPlans{height: 230px; width:100%; margin:18px; background-color:#ffffff; }
+.sp .search .image{float:left;}
+.sp .search .sentence{float:left; height:230px; padding:0 18px; background-color:#ffffff;}
+.sp .search p.budget{ border-bottom: none;}
+.sp .search .searchPlans .image p{border:none;}
+.sp .main.search .image { width:240px; height:200px; margin: 15px 0 0 18px; position: relative; }
+.sp .main.search .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height: 200px; background-size: cover; }

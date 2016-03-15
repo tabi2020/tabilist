@@ -1,0 +1,39 @@
+<div id="footer">
+
+	<% if request.smart_phone? %>
+		<p class="footerTop">
+			<%= image_tag("sp/sp_footerico.png", alt:"tabilist" , class:"tabiIco") %>
+		</p>
+		<p class="footerTitle">
+			レコメンド旅行プランサイト<br /><span class="bigsiteName">tabilist</span>
+		</p>
+		<p class="footerEmail">
+			email&nbsp;:&nbsp;tabilist@email.com
+		</p>
+
+	<%else%>
+		<p id="footerTop">
+			プランを探す
+		</p>
+		<ul>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+			<li><%= link_to '北海道 ', '/search/1' %></li>
+		</ul>
+
+		<div id="intro">
+			<p class="siteName">
+				レコメンド旅行サイト&nbsp;<span class="bigsiteName">tabilist</span>
+			</p>
+			<p class="siteEmail">
+				e-mail&nbsp;:&nbsp;tabilist@email.com 
+			</p>
+		</div>
+	<%end%>
+</div>

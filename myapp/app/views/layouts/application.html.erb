@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>旅行プランサイトtabilist.jp | 旅行プランをレコメンド</title>
+	<meta name="keywords" content="tabilist,TABILIST,旅,たび,タビ,タビリスト,たびりすと,旅行,りょこう,プラン," />
+	<meta name="description" content="tabilistは旅行プランをレコメンド！ここに行きたい！が見つかるサイトです。" />
+	<meta name="author" content="tabilist.jp" />
+	<meta name="robots" content="index,follow,noydir,noodp" />
+	<meta name="viewport" content="width=1000" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-title" content="tabilist">
+	<link rel="shortcut icon" href="/favicon.ico" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body <% if request.smart_phone? %> class="sp" <% end %>>
+
+<%= render 'shared/header' %>
+
+<%= yield %>
+
+<%= render 'shared/footer' %>
+
+</body>
+</html>
