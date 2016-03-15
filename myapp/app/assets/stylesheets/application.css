@@ -60,7 +60,7 @@ li{list-style: none; }
 .sp #hSearchPref.show{display: block;}
 .sp #hSearchPref #hSearchTitle{font-size:18px; font-weight: bold; text-align: center; color: #74a2d7; margin: 70px 0 40px 0; z-index: 5;}
 .sp #hSearchPref #hClose{ height: 24px; position: inherit; right: 20px; text-align: right; top: 80px;}
-.sp #spHeader #spHeaderIco{height:24px; padding:20px 10px 20px 20px; float:left;}
+.sp #spHeader #spHeaderIco{height:38px; padding:13px 10px 20px 20px; float:left;}
 .sp #spHeader p{float:left; color:#fff; font-size: 12px; }
 .sp #spHeader p #hTitle{font-size: 16px; }
 
