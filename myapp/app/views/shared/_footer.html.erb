@@ -1,0 +1,41 @@
+<div id="footer">
+
+	<% if request.smart_phone? %>
+		<p class="footerTop">
+			<%= image_tag("sp/sp_footerico.png", alt:"tabilist" , class:"tabiIco") %>
+		</p>
+		<p class="footerTitle">
+			レコメンド旅行プランサイト<br /><span class="bigsiteName">tabilist</span>
+		</p>
+		<p class="footerEmail">
+			email&nbsp;:&nbsp;<a href="mailto:tabilist20@yahoo.co.jp?subject=お問い合わせ">tabilist20@yahoo.co.jp</a>
+		</p>
+
+	<%else%>
+		<p class="footerIco">
+			<%= image_tag("sp/sp_footerico.png", alt:"tabilist" , class:"tabiIco") %>
+		</p>
+		<p id="footerTop">
+			プランを探す
+		</p>
+		<ul>
+			<li><%= link_to '北海道', '/search/1' %></li>
+			<li><%= link_to '東京', '/search/13' %></li>
+			<li><%= link_to '愛知', '/search/23' %></li>
+			<li><%= link_to '京都', '/search/26' %></li>
+			<li><%= link_to '島根', '/search/32' %></li>
+			<li><%= link_to '福岡', '/search/40' %></li>
+			<li><%= link_to '熊本', '/search/43' %></li>
+			<li><%= link_to '鹿児島', '/search/46' %></li>
+		</ul>
+
+		<div id="intro">
+			<p class="siteName">
+				レコメンド旅行サイト&nbsp;<span class="bigsiteName">tabilist</span>
+			</p>
+			<p class="siteEmail">
+				email&nbsp;:&nbsp;<a href="mailto:tabilist20@yahoo.co.jp?subject=お問い合わせ">tabilist20@yahoo.co.jp</a>
+			</p>
+		</div>
+	<%end%>
+</div>
