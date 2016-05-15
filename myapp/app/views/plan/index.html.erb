@@ -1,168 +1,117 @@
 <%= stylesheet_link_tag "plan", media: "all","data-turbolinks-track" => true %>
-
-<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-<%= javascript_include_tag 'gmap' %>
-<% if request.smart_phone? %>
-	<%= javascript_include_tag 'sp_plan' %>
-<% else %>
-	<%= javascript_include_tag 'plan' %>
-<% end %>
-
-<script type="text/javascript">
-	var map;
-	$(document).ready(function(){
-		map = new GMaps({
-			div: '#map',
-			lat: <%= @Plan[0].spot_lat %>,
-			lng: <%= @Plan[0].spot_lng %>,
-			streetViewControl: false,
-			mapTypeControl: false,
-			zoom:14
-		});
-		<% @cnt = 1%>
-		<% @Plan.each do |plan| %>
-		<% @image_ico = '/assets/common/' + @cnt.to_s + '.png' %>
-		  map.addMarker({
-			lat: <%= plan.spot_lat %>,
-		    lng: <%= plan.spot_lng %>,
-		    icon: "<%= @image_ico %>",
-		  });
-		<% @cnt = @cnt + 1%>
-		<% end %>
-	});
-</script>
+<%= javascript_include_tag 'plan' %>
 
 <div class="main clearfix plan">
-	<% if request.smart_phone? %>
+	<div class="planHeader">
+		<h1><%= @Plan[0].plan_title %></h1>
+		<div><%= @Plan[0].plan_note %></div>
+		<% if false %>
+		<p class="budget">
+			予算：<%= @Plan[0].plan_cost.to_s(:delimited) %>
+			日程：<%= @Plan[0].plan_date %>
+		</p>
+		<% end %>
+	</div>
+	<div class="leftColumn" id="left">
+		<% if @Plan.present? %>
+			<% @cnt = 1%>
+			<% @Plan.each do |plan| %>
+				<% @image_ico = 'common/' + @cnt.to_s + '.png' %>
+				<h2 class="planSpot">
+					<%= image_tag(@image_ico, width:"21px") %>
+					<span class="detailTitle">
+						<%= plan.spot_name %>
+					</span>
+				</h2>
 
-		<div class="planHeader">
-			<h1><%= @Plan[0].plan_title %></h1>
-			<div id="planDetail"><%= @Plan[0].plan_note %>
-			</div>
-			<p class="budget">
-				予算：<%= @Plan[0].plan_cost %>
-				日程：<%= @Plan[0].plan_date %>
-			</p>
-		</div>
-
+				<% @pland_image = 'plan/' + plan.planID.to_s + '/' + @cnt.to_s + '.jpg' %>
+				<%= image_tag(@pland_image, alt:plan.spot_name ,width:"720px", class:"planimage") %>
+				<p class="ref">出典:<%= plan.plandetail_imgURL %> </p>
+				<p class="note">
+					<%= plan.plandetail_note %>
+				</p>
+				<p class="blueBtn round showmore">
+					<%= image_tag("btn_arr.png", alt:"スポットの詳細をみる" , class:"arrIco") %><span class="btnSentence">スポットの詳細をみる</span>
+				</p>
+				<div class="spotInfo hide">
+					<div clas="mainDetail">
+						<div class="content">
+							<p class="title">場所</p>
+							<p class="contentDetail"><%= plan.spot_name %>
+							<% if !plan.spot_url.blank? %>
+								<span class="targetLink"><%= link_to '[Link]', plan.spot_url %></span></p>
+							<% end %>
+						</div>
+						<div class="content">
+							<p class="title">カテゴリ</p>
+							<p class="contentDetail"><%= plan.spot_type %></p>
+						</div>
+						<div class="content">
+							<p class="title">住所</p>
+							<p class="contentDetail"><%= plan.spot_address %>
+							</p>
+						</div>
+						<% if !plan.spot_phone.blank? %>
+						<div class="content">
+							<p class="title">Tel</p>
+							<p class="contentDetail"><%= plan.spot_phone %></p>
+						</div>
+						<% end %>
+					</div>
+				</div>	
+				<% @cnt = @cnt + 1%>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="rightColumn" id="spotList" >
 		<div class="spots">
+
 			<ul>
+				<li id="spotTitle">このプランのスポット</li>
 				<% @cnt = 1%>
 				<% @Plan.each do |plan| %>
 					<% @image_ico = 'common/' + @cnt.to_s + '.png' %>
-					<li><%= image_tag(@image_ico, class:"icoNumber" , width:"19px") %>
-						<p class="spotList">
-							<%= plan.spot_name %><br /> 
-							<span class="spotDetail"><%= plan.spot_type %> |</span> <span class="spotType"><%= plan.spot_address %></span>
-						</p>
+					<li>
+						<%= image_tag(@image_ico, class:"icoNumber" , width:"19px") %>
+						<span class="listName"><%= plan.spot_name %></span>
 					</li>
-					<% @cnt = @cnt + 1%>
+				<% @cnt = @cnt + 1%>
 				<% end %>
 			</ul>
 		</div>	
-
-		<div class="planMain">
-			<% if @Plan.present? %>
-				<% @cnt = 1%>
-				<% @Plan.each do |plan| %>
-					<% @image_ico = 'common/' + @cnt.to_s + '.png' %>
-					<div class="planSpot <%= plan.plandetailsID %>">
-						<div class="planDetailTitle">
-							<%= image_tag(@image_ico, width:"21px") %>
-							<p class="spotName">
-								<%= plan.plandetail_title %>
-							</p>
-						</div>
-						<% @pland_image = 'plan/' + plan.planID.to_s + '/' + plan.plandetailsID.to_s + '.jpg' %>
-						<%= image_tag(@pland_image, alt:plan.spot_name , class:"spplanimage") %>
-						<p class="note">
-							<%= plan.plandetail_note %>
-						</p>
-						<div class="blueBtn round showmore">
-							<%= image_tag("btn_arr.png", alt:"スポットの詳細をみる" , class:"arrIco") %><p class="btnSentence">スポットの詳細をみる</p>
-						</div>
-						<div class="spotInfo hide">
-							<div clas="mainDetail">
-								<div class="content">
-									<p class="title">場所</p>
-									<p class="main"><%= plan.spot_name %></p>
-								</div>
-								<div class="content">
-									<p class="title">カテゴリ</p>
-									<p class="main"><%= plan.spot_type %></p>
-								</div>
-								<div class="content">
-									<p class="title">住所</p>
-									<p class="main"><%= plan.spot_address %>
-									</p>
-								</div>
-								<div class="content">
-									<p class="title">Tel</p>
-									<p class="main"><%= plan.spot_phone %></p>
-								</div>
-								<div class="content">
-									<p class="title">Web</p>
-									<p class="main"><%= plan.spot_url %></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<% @cnt = @cnt + 1%>
-				<% end %>
-			<% end %>
-			<div id= "gogMap">
-				<div id="mapTitle"><%= @Plan[0].plan_title %></div>
-				<div id="map"></div>
-			</div>
-		</div>
-
-	<% else %>
-		<div class="planHeader">
-			<h1><%= @Plan[0].plan_title %></h1>
-			<div><%= @Plan[0].plandetail_note %></div>
-			<p class="budget">
-				予算：<%= @Plan[0].plan_cost %>
-				日程：<%= @Plan[0].plan_date %>
-			</p>
-		</div>
-		<div class="leftColumn" id="left">
-			<% if @Plan.present? %>
-				<% @Plan.each do |plan| %>
-					<h2 class="planSpot <%= plan.plandetailsID %>">
-						<p class="spotName">
-							<%= plan.plandetail_title %>
-						</p>
-						<% @pland_image = 'plan/' + plan.planID.to_s + '/' + plan.plandetailsID.to_s + '.jpg' %>
-						<%= image_tag(@pland_image, alt:plan.spot_name , class:"planimage") %>
-						<p class="note">
-							<%= plan.plandetail_note %>
-						</p>
-							
-						<div class="info">
-							場所：<%= plan.spot_name %>
-						</div>
-					</h2>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="rightColumn" >
-			<div class="spots">
-
-				<ul>
-					<li id="spotTitle">このプランのスポット</li>
-					<% @cnt = 1%>
-					<% @Plan.each do |plan| %>
-						<% @image_ico = 'common/' + @cnt.to_s + '.png' %>
-						<li>
-							<%= image_tag(@image_ico, class:"icoNumber" , width:"19px") %>
-							<span class="listName"><%= plan.spot_name %></span>
-						</li>
-					<% @cnt = @cnt + 1%>
-					<% end %>
-				</ul>
-				<div id="map"></div>
-				<p id="mapDetail">マップの詳細をみる</p>
-			</div>	
-		</div>
-	<% end %>
+	</div>
 </div>
+<div id="map"></div>
+
+<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+<script src="//raw.githubusercontent.com/HPNeo/gmaps/master/gmaps.js"></script>
+<script>
+    window.onload = function(){
+        var lat = <%= @Plan[0].spot_lat %>;
+        var lng = <%= @Plan[0].spot_lng %>;
+        var map = new GMaps({
+            div: "#map",
+            lat: lat,
+            lng: lng,
+            streetViewControl: false,
+            mapTypeControl: false,
+            zoom: 14
+        });
+		<% @cnt = 1%>
+		<% @Plan.each do |plan| %>
+		<% @image_ico = 'http://tabilist.jp/assets/common/small_' + @cnt.to_s + '.png' %>
+
+        map.addMarker({
+            lat: <%= plan.spot_lat %>,
+            lng: <%= plan.spot_lng %>,
+            icon: "<%= @image_ico %>",
+            title: "<%= plan.spot_name %>",
+            infoWindow: {
+            	content:"<p><%= plan.spot_name %></p>"
+            }
+        });
+		<% @cnt = @cnt + 1%>
+		<% end %>
+    };
+</script>
+

@@ -21,43 +21,37 @@
 				<%= link_to '/search/1' do %>
 					<li class="blueBtn">北海道<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">宮城<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
-				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">石川<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
-				<% end %>
-				<%= link_to '/search/1' do %>
+				<%= link_to '/search/13' do %>
 					<li class="blueBtn">東京<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">神奈川<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
-				<% end %>
-				<%= link_to '/search/1' do %>
+				<%= link_to '/search/23' do %>
 					<li class="blueBtn">愛知<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">大阪<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
-				<% end %>
-				<%= link_to '/search/1' do %>
+				<%= link_to '/search/26' do %>
 					<li class="blueBtn">京都<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">兵庫<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
+				<%= link_to '/search/32' do %>
+					<li class="blueBtn">島根<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
+				<%= link_to '/search/40' do %>
 					<li class="blueBtn">福岡<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
+				<%= link_to '/search/43' do %>
+					<li class="blueBtn">熊本<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
+				<% end %>
+				<%= link_to '/search/46' do %>
 					<li class="blueBtn">鹿児島<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
 				<% end %>
-				<%= link_to '/search/1' do %>
-					<li class="blueBtn">沖縄<%= image_tag('sp/sp_arrow.png' ,:class => 'Arrow', :alt => '矢印') %></li>
-				<% end %>
-
-			<ul>
+			</ul>
 		</div>
 	<%else%>
-		<%= link_to_unless_current image_tag('header.png' ,:width => '100%',:id => 'header', :alt => 'tabilist.jp'), '/' %>
+		<div id="pcHeader">
+			<%= link_to '/' do %>
+				<%= image_tag('sp/sp_icon.png',:id => 'HeaderIco', :alt => 'tabilist.jp') %>
+				<p>レコメンド旅行プランサイト<br />
+					<span id="hTitle">tabilist</span>
+				</p>
+			<% end %>
+		</div>
 	<%end%>
 </div>

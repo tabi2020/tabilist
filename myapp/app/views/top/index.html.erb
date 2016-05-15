@@ -1,121 +1,66 @@
 <%= stylesheet_link_tag "top", media: "all","data-turbolinks-track" => true %>
-<% if request.smart_phone? %>
-	<div class="main sp">
-			<h1 class="tutorial"><%= image_tag('sp/sp_top.png',:id => 'spTopImage', :alt => '旅行まるごとレコメンド tabilist') %></h1>
-			<h2>
-				tabilistは日本各地の人気スポット情報はもちろん<br />
-				旅行プランをもるごとあなたにレコメンド<br />
-				ここに行きたい！がきっと見つかるサイトです。
-			</h2>
-			<% if @Plan.present? %>
-				<div class="plans">
-					<p id ="popularTitle">人気のプラン</p>
-					<ul>
-						<% @Plan.each do |plan| %>
-							<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
-								<li class="spList">
-									<% @spot = get_spotdetail(plan.id) %>
-									<% @pland_image = '/assets/plan/' + plan.id.to_s + '/default.jpg' %>
-									<div class="image">
-										<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
-									</div>
+<div class="main clearfix">
+	<div class="leftColumn">
+		<h1 class="tutorial"><%= image_tag 'tutorial.png', :width => '762px',:height => '342px' ,:alt => '旅行プランサイト:tabilist' %></h1>
+		<% if @Plan.present? %>
+			<div class="plans">
+				<h2>人気のプラン</h2>
+				<ul>
+					<% @Plan.each do |plan| %>
+						<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
+							<li>
+								<% @spot = get_spotdetail(plan.id) %>
+								<% @pland_image = '/assets/plan/' + plan.id.to_s + '/1.jpg' %>
+								<div class="image">
+									<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
+									<p class="ico"><span class="count">
+										<%= image_tag('spotCount.png',:class => 'spotCount') %><%= @spot.size %>
+									</span></p>
+									<p class="ref">出典:<%= @spot[0].plandetail_imgURL %></p>
+								</div>
 
-									<div class="sentence">
-										<p class="planTitle"><span class="heightMiddle"><%= plan.plan_title%></span></p>
-										<p class="spotsName"><span class="underline"><%= image_tag('spot.png',:class => 'spotIco') %>
-										<% if @spot.present? %>
-											<% @spot.each do |spot| %>
-												&nbsp;<%= spot.spot_name%>&nbsp;/
-											<% end %>
+								<div class="sentence">
+									<p class="planTitle"><span class="heightMiddle"><%= plan.plan_title%></span></p>
+									<p class="spotsName"><span class="underline"><%= image_tag('spot.png',:class => 'spotIco') %>
+									<% if @spot.present? %>
+										<% get_spotdetail(plan.id).each do |spot| %>
+											&nbsp;<%= spot.spot_name%>
 										<% end %>
-										</span></p>
-										<p class="spotsTag">
-											<span class="underline">
-												<%= image_tag('tag.png',:class => 'spotCountIco') %>&nbsp;
-												<% if @spot.present? %>
-													<% @spot.each do |spot| %>
-														&nbsp;<%= spot.spot_type%>&nbsp;
-													<% end %>
+									<%else%>
+									<% end %>
+									</span></p>
+									<p class="spotsTag">
+										<span class="underline">
+											<%= image_tag('tag.png',:class => 'spotCountIco') %>&nbsp;
+											<% if @spot.present? %>
+												<% @spot.each do |spot| %>
+													&nbsp;<%= spot.spot_type%>&nbsp;
 												<% end %>
-											</span>
-										</p>
-									</div>
-								</li>
-							<% end %>
-						<% end %>
-					</ul>
-				</div>
-			<% else %>
-			<% end %>
-	</div>
-<%else%>
-	<div class="main clearfix">
-		<div class="leftColumn">
-			<h1 class="tutorial"><%= image_tag 'tutorial.png', :width => '762px',:height => '342px' ,:alt => '旅行プランサイト:tabilist' %></h1>
-			<% if @Plan.present? %>
-				<div class="plans">
-					<h2>人気のプラン</h2>
-					<ul>
-						<% @Plan.each do |plan| %>
-							<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
-								<li>
-									<% @spot = get_spotdetail(plan.id) %>
-									<% @pland_image = '/assets/plan/' + plan.id.to_s + '/default.jpg' %>
-									<div class="image">
-										<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
-										<p class="ico"><span class="count">
-											<%= image_tag('spotCount.png',:class => 'spotCount') %><%= @spot.size %>
-										</span></p>
-									</div>
-
-									<div class="sentence">
-										<p class="planTitle"><span class="heightMiddle"><%= plan.plan_title%></span></p>
-										<p class="spotsName"><span class="underline"><%= image_tag('spot.png',:class => 'spotIco') %>
-										<% if @spot.present? %>
-											<% get_spotdetail(plan.id).each do |spot| %>
-												&nbsp;<%= spot.spot_name%>
 											<% end %>
-										<%else%>
-										<% end %>
-										</span></p>
-										<p class="spotsTag">
-											<span class="underline">
-												<%= image_tag('tag.png',:class => 'spotCountIco') %>&nbsp;
-												<% if @spot.present? %>
-													<% @spot.each do |spot| %>
-														&nbsp;<%= spot.spot_type%>&nbsp;
-													<% end %>
-												<% end %>
-											</span>
-										</p>
-									</div>
-								</li>
-							<% end %>
+										</span>
+									</p>
+								</div>
+							</li>
 						<% end %>
-					</ul>
-				</div>
-			<% else %>
-			<% end %>
-
-		</div>
-
-		<div class="rightColumn">
-			<h2>プランを探す</h2>
-			<ul class="prefSearch">
-				<li><%= link_to '北海道 (Hokkaido)', '/search/1' %></li>
-				<li><%= link_to '東京 (Tokyo)', '/search/3' %></li>
-				<li><%= link_to '神奈川 (Kanagawa)', '/search/3' %></li>
-				<li><%= link_to '愛知 (Aichi)', '/search/3' %></li>
-				<li><%= link_to '京都 (Kyoto)', '/search/3' %></li>
-				<li><%= link_to '大阪 (Osaka)', '/search/3' %></li>
-				<li><%= link_to '兵庫 (Hyogo)', '/search/3' %></li>
-				<li><%= link_to '福岡 (Hukuoka)', '/search/3' %></li>
-				<li><%= link_to '熊本 (Kumamoto)', '/search/3' %></li>
-				<li><%= link_to '鹿児島 (Kagoshima)', '/search/3' %></li>
-				<li><%= link_to '沖縄 (Okinawa)', '/search/47' %></li>
-			</ul>
-		</div>
-
+					<% end %>
+				</ul>
+			</div>
+		<% else %>
+		<% end %>
 
 	</div>
-<% end %>
+
+	<div class="rightColumn">
+		<h2>プランを探す</h2>
+		<ul class="prefSearch">
+			<li><%= link_to '北海道 (Hokkaido)', '/search/1' %></li>
+			<li><%= link_to '東京 (Tokyo)', '/search/13' %></li>
+			<li><%= link_to '愛知 (Aichi)', '/search/23' %></li>
+			<li><%= link_to '京都 (Kyoto)', '/search/26' %></li>
+			<li><%= link_to '島根 (Shimane)', '/search/32' %></li>
+			<li><%= link_to '福岡 (Hukuoka)', '/search/40' %></li>
+			<li><%= link_to '熊本 (Kumamoto)', '/search/43' %></li>
+			<li><%= link_to '鹿児島 (Kagoshima)', '/search/46' %></li>
+		</ul>
+	</div>
+</div>

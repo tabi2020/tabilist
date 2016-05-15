@@ -15,7 +15,7 @@
 					<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
 
 						<% @spot = get_spotdetail(plan.id) %>
-						<% @pland_image = '/assets/plan/' + plan.id.to_s + '/1.jpg' %>
+						<% @pland_image = '/assets/plan/' + plan.id.to_s + '/default.jpg' %>
 
 						<div class="image">
 							<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
@@ -45,6 +45,7 @@
 									<% end %>
 								</span>
 							</p>
+							<p class="budget">プラン予算：<%= plan.plan_cost %> 日程：<%= plan.plan_date %></p>
 						</div>
 					<% end %>
 				</div>

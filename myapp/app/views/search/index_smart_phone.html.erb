@@ -1,28 +1,40 @@
 <%= stylesheet_link_tag "search", media: "all","data-turbolinks-track" => true %>
 <div class="main clearfix search">
-	<div class="leftColumn">
-		<h1>
-			<% if @PrefDetail.present? %>
-				<%= @PrefDetail[0].prefdetails_name%>
-			<% else %>
-				<%= @Pref[0].pref_name%>
+	<h1>
+		<% if @PrefDetail.present? %>
+			<%= @PrefDetail[0].prefdetails_name%>
+		<% else %>
+			<%= @Pref[0].pref_name%>
+		<% end %>
+		のお出かけ・旅行プラン一覧
+	</h1>
+
+	<% if @Pref.present? and @DetailExits == 1 %>
+		<div class="gpSearch">
+			<h2><%= @Pref[0].pref_name%>の詳細地域</h2>
+			<div class="prefSearch">
+			<% @Pref.each do |pref| %>
+				<%= link_to ({ :controller => :search,:prefid => pref.pref_id ,:prefdetailid => pref.prefdetailid }) do %>
+					<%= pref.prefdetails_name%>
+				<% end %>
 			<% end %>
-			のお出かけ・旅行プラン一覧
-		</h1>
-		<% if @Search_Plan.present? %>
+			</div>
+		</div>
+	<% else %>
+	<% end %>
+
+	<% if @Search_Plan.present? %>
+		<div id="plans">
 			<% @Search_Plan.each do |plan| %>
-				<div class="searchPlans">
-					<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
+				<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
+					<div class="searchPlans">
 
 						<% @spot = get_spotdetail(plan.id) %>
 						<% @pland_image = '/assets/plan/' + plan.id.to_s + '/1.jpg' %>
 
 						<div class="image">
 							<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
-							<p class="ico"><span class="count">
-								<%= image_tag('spotCount.png',:class => 'spotCount') %><%= @spot.size %>
-							</span></p>
-							<p class="ref">出典:<%= @spot[0].plandetail_imgURL %></p>							
+							<p class="ref">出典:<%= @spot[0].plandetail_imgURL %> </p>
 						</div>
 
 						<div class="sentence">
@@ -40,31 +52,16 @@
 									<%= image_tag('tag.png',:class => 'spotCountIco') %>&nbsp;
 									<% if @spot.present? %>
 										<% @spot.each do |spot| %>
-											<%= spot.spot_type%>&nbsp;
+											&nbsp;<%= spot.spot_type%>&nbsp;
 										<% end %>
 									<% end %>
 								</span>
 							</p>
 						</div>
-					<% end %>
-				</div>
-			<% end %>
-		<% else %>
-		<% end %>
-	</div>
-
-	<div class="rightColumn">
-
-		<% if @Pref.present? and @DetailExits == 1 %>
-			<h2><%= @Pref[0].pref_name%>の詳細地域</h2>
-			<ul class="prefSearch">
-			<% @Pref.each do |pref| %>
-				<%= link_to ({ :controller => :search,:prefid => pref.pref_id ,:prefdetailid => pref.prefdetailid }) do %>
-					<li><%= pref.prefdetails_name%></li>
+					</div>
 				<% end %>
 			<% end %>
-			</ul>
-		<% else %>
-		<% end %>
-	</div>
+		</div>
+	<% else %>
+	<% end %>
 </div>

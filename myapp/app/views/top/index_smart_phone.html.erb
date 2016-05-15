@@ -1,1 +1,50 @@
-スマホ
+<%= stylesheet_link_tag "top", media: "all","data-turbolinks-track" => true %>
+	<div class="main sp">
+			<h1 class="tutorial"><%= image_tag('sp/sp_top.png',:id => 'spTopImage', :alt => '旅行まるごとレコメンド tabilist') %></h1>
+			<h2>
+				tabilistは日本各地の人気スポット情報はもちろん<br />
+				旅行プランをまるごとあなたにレコメンド<br />
+				ここに行きたい！がきっと見つかるサイトです。
+			</h2>
+			<% if @Plan.present? %>
+				<div class="plans">
+					<p id ="popularTitle">人気のプラン</p>
+					<ul>
+						<% @Plan.each do |plan| %>
+							<%= link_to ({ :controller => :plan,:planid => plan.id }) do %>
+								<li class="spList">
+									<% @spot = get_spotdetail(plan.id) %>
+									<% @pland_image = '/assets/plan/' + plan.id.to_s + '/1.jpg' %>
+									<div class="image">
+										<span class="cover" style="background-image: url('<%= @pland_image %>')"></span>
+										<p class="ref">出典:<%= @spot[0].plandetail_imgURL %> </p>
+									</div>
+
+									<div class="sentence">
+										<p class="planTitle"><span class="heightMiddle"><%= plan.plan_title%></span></p>
+										<p class="spotsName"><span class="underline"><%= image_tag('spot.png',:class => 'spotIco') %>
+										<% if @spot.present? %>
+											<% @spot.each do |spot| %>
+												&nbsp;<%= spot.spot_name%>&nbsp;/
+											<% end %>
+										<% end %>
+										</span></p>
+										<p class="spotsTag">
+											<span class="underline">
+												<%= image_tag('tag.png',:class => 'spotCountIco') %>&nbsp;
+												<% if @spot.present? %>
+													<% @spot.each do |spot| %>
+														&nbsp;<%= spot.spot_type%>&nbsp;
+													<% end %>
+												<% end %>
+											</span>
+										</p>
+									</div>
+								</li>
+							<% end %>
+						<% end %>
+					</ul>
+				</div>
+			<% else %>
+			<% end %>
+	</div>
