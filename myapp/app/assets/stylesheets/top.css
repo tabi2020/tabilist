@@ -1,21 +1,35 @@
+
+
+.pc .main .ref{font-size:8px; margin-top:-6px; text-align:center; background-color: #f5f5f5; font-color:#aaaaaa;word-break: break-all; border-left:1px solid #aaa; border-right:1px solid #aaa; }
+
 /* SP */
 .main.sp .tutorial{margin: 0;}
+
 
 .sp h2{margin:10px auto 12px auto; width:100%; text-align: center; color:#ff763d; line-height:1.8; }
 .sp #spTopImage{width: 100%;}
 .sp .plans {background-color:#f9f9f9; }
-.sp .plans ul{padding: 0 15px 0 15px; }
-.sp .plans #popularTitle{text-align: center; padding: 8px 0 0;}
+.sp .plans ul{padding: 0 5px 0 5px; }
+.sp .plans #popularTitle{text-align: center; padding: 8px 0 0; font-weight: bold;}
 
-.sp li .planTitle{height:100px; color: #555555; font-size: 18px; }
+.sp li .planTitle{height:68px; color: #555555; font-size: 14px; margin:0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sp li .planTitle .heightMiddle{color:#202020;}
-.sp .spList {height:200px; margin:0 15px 18px 0; background-color:#fbfbfb; padding: 28px; }
+.sp .spList {height:110px; margin:0 10px 18px 0; background-color:#fbfbfb; padding: 7px; box-sizing: border-box; display: table; position: relative; width: 100%; table-layout: fixed;}
+.sp .spList .ref{font-size: 6px; margin-top:-6px; text-align:center; background-color: #f5f5f5; font-color:#aaaaaa;word-break: break-all;}
+.sp .spList .spotIco {height:10px;}
+.sp .spList .spotCountIco {height:10px;}
+/*
+.sp .image { float:left; width:120px; height: 100px; position: relative; }
+.sp .sentence{float:left; height:100px; margin: 0 0 0 5px; font-size: 10px; }
+*/
+.sp .image {  width:120px; height: 100px; position: relative; padding: 4px 0 0;display: table-cell; }
+.sp .sentence{ height:100px; padding: 0 0 0 5px; font-size: 10px; display: table-cell; vertical-align: top; width: 99%; }
 
-.sp .image{float:left;}
-.sp .sentence{float:left; height:200px; margin: 0 0 0 15px; }
-
+.sp .sentence .spotsName{margin:5px 0 5px 0; white-space: nowrap; overflow: hidden;  }
+.sp .sentence .spotsTag{margin:5px 0 5px 0; white-space: nowrap; overflow: hidden;}
+.sp .sentence p{text-overflow: ellipsis; text-align: left; width: 100%;}
 /*
 .sp .sentence{float:right; width:484px; height:162px; border:1px solid #aaa; padding:18px;}
 */
-.sp .image { width:240px; height:200px; position: relative; }
-.sp .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height: 200px; background-size: cover; }
+
+.sp .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 120px; height: 100px; background-size: cover; }

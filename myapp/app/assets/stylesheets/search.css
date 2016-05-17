@@ -1,26 +1,38 @@
+	.search .leftColumn .searchPlans .image p.ref{font-size:8px; margin-top:-6px; text-align:center; background-color: #f5f5f5; font-color:#aaaaaa;word-break: break-all; border-left:1px solid #aaa; border-bottom:1px solid #aaa; height:12px; }
+
 .search h1{ border-bottom: 1px solid #aaa; font-size: 18px; margin: 25px 0; padding: 0 0 30px; }
 .search .leftColumn .searchPlans{height: 220px;}
 .search .leftColumn .image{float:left;}
 .search .leftColumn .sentence{float:right; width:484px; height:162px; border:1px solid #aaa; padding:18px;}
-.search .leftColumn p{ border-bottom: 1px solid #aaa;}
+.search .leftColumn p{ border-bottom: 1px solid #aaa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .search .leftColumn p.budget{ border-bottom: none;}
 .search .leftColumn .searchPlans .image p{border:none;}
+.main.search .leftColumn .image .ico{bottom:8px;}
 
 .main.search .leftColumn .image { width:240px; height:200px; position: relative; }
-.main.search .leftColumn .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height: 200px; background-size: cover; }
+.main.search .leftColumn .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height:187px; background-size: cover; }
+
+.pc .search .planTitle{color:#202020;}
 
 /* sp */
 .sp .search h1{ color:#202020; border-bottom: 1px solid #d4d4d4; font-size: 20px; margin: 25px 0 5px 0; padding: 0 0 25px; text-align: center; }
 .sp .search h2{ color:#555555;}
-.sp .search #plans{padding:0 30px 0 0;}
+.sp .search #plans{padding:0 10px 0 0; width: 100%;}
 .sp .search .gpSearch{padding: 0 15px 10px 15px; border-bottom: 1px solid #d4d4d4;}
 
 .sp .search .prefSearch a{color: #74a2d7; font-weight: bold; margin: 0 10px 0 0; font-size:16px; }
-.sp .search .planTitle{color:#202020; height: 100px;}
-.sp .search .searchPlans{height: 230px; width:100%; margin:18px; background-color:#ffffff; }
-.sp .search .image{float:left;}
-.sp .search .sentence{float:left; height:230px; padding:0 18px; background-color:#ffffff;}
+.sp .search .planTitle{color:#202020; height:80px;}
+.sp .search .searchPlans{height: 136px; width:100%; margin:10px 5px; background-color:#ffffff; box-sizing:border-box; display: table; position: relative; width: 100%; table-layout: fixed;}
+.sp .search .image{}
+.sp .search .sentence{height:100px; padding:12px 10px; background-color:#ffffff; display:table-cell; vertical-align:top; width:99%;}
+.sp .search .sentence p{margin: 0px;}
+.sp .search .sentence .spotsName{font-size:10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.sp .search .sentence .spotsTag{font-size:10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.sp .search .sentence .spotIco {height:10px;}
+.sp .search .sentence .spotCountIco {height:10px;}
+.sp .search .ref{font-size: 6px; margin-top:-6px; text-align:center; background-color: #f5f5f5; font-color:#aaaaaa;word-break: break-all;}
+
 .sp .search p.budget{ border-bottom: none;}
 .sp .search .searchPlans .image p{border:none;}
-.sp .main.search .image { width:240px; height:200px; margin: 15px 0 0 18px; position: relative; }
-.sp .main.search .cover {display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; width: 240px; height: 200px; background-size: cover; }
+.sp .main.search .image { width:120px; height:100px; padding: 15px 0 0 5px; position: relative; display: table-cell;}
+.sp .main.search .cover { width:120px; height:100px; display:inline-block; background-color: #ccc; background-position: center center; background-repeat: no-repeat; background-size: cover; }

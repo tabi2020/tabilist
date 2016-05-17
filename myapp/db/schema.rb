@@ -62,11 +62,4 @@ ActiveRecord::Schema.define(version: 20151115083551) do
     t.string  "spot_closedt"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

@@ -11,7 +11,7 @@
     var $showmore=$('.showmore');
     $showmore.click(function(){
       $(this).addClass('hide');
-      $(this).next('div').removeClass('hide');
+      $(this).next('div').slideDown("fast");
     });
   }
 }).init();

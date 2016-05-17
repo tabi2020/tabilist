@@ -8,6 +8,10 @@ class TopController < ApplicationController
     @Plan =  Plan.order("RANDOM()")
     @img_file_name = "/default.jpg"
 
+    @title = "旅行プランサイトtabilist.jp | おすすめの旅行プランをまるごとレコメンド"
+    @keywords = "tabilist,TABILIST,旅,たび,タビ,タビリスト,たびりすと,旅行,りょこう,プラン,まるごと,レコメンド,おすすめ"
+    @description = "tabilistはおすすめの旅行プランをまるごとレコメンド！ここに行きたい！が見つかるサイトです。"
+
 =begin
   	animals = ["dog","cat","lion"]
   	animals << "mogura"

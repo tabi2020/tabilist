@@ -16,7 +16,29 @@ class SearchController < ApplicationController
     @PrefDetail = Prefdetail.where(prefdetails: { id: prefdetailid })
 		@Search_Plan = Plan.joins({:plandetails => {:spot => :prefdetail}}).where(spots: { prefdetail_id: prefdetailid }).group('plans.id')
 	end
+# ・・・の旅行プラン | .../../ の旅行プランもまるごとレコメンド - tabilist
+# ・・・<title>３ピースコンビネゾン(HARE)（サロペット/オーバーオール）｜HARE（ハレ）のファッション通販 - ZOZOTOWN</title>
+  title = ""
+  keywords = ""
+  if @Pref.present? then
+    @DetailExits = 1
+    @Pref.each do |pref|
+      title += pref.prefdetails_name
+      keywords += pref.prefdetails_name
+      keywords += ','
+    end 
 
+    @title = @Pref[0].pref_name + "の旅行プラン | " + title + "の旅行プランもまるごとレコメンド - tabilist"
+    @keywords = @Pref[0].pref_name + "," + keywords + "tabilist,TABILIST,旅,たび,タビ,タビリスト,たびりすと,旅行,りょこう,レコメンド,おすすめ"
+    @description = "【tabilist｜旅行プランをまるごとレコメンド！】" + @Pref[0].pref_name + "や" + keywords.chop + "の旅行プランを紹介します。"
+  else
+    @DetailExits = 0
+    @Pref = Pref.where(id:prefid)
+    @title = @Pref[0].pref_name + "の旅行プラン | " + @Pref[0].pref_name + "の旅行プランもまるごとレコメンド - tabilist"
+    @keywords = @Pref[0].pref_name + ",tabilist,TABILIST,旅,たび,タビ,タビリスト,たびりすと,旅行,りょこう,レコメンド,おすすめ"
+    @description = "【tabilist｜旅行プランをまるごとレコメンド！】" + @Pref[0].pref_name + "の旅行プランを紹介します。"
+
+  end
 #	plans = Plan.arel_table
 #	plandetails = Plandetail.arel_table
 #	spots = Spot.arel_table
